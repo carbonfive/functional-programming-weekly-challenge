@@ -13,3 +13,8 @@ match('Ratatattat', 'at', 3) == false
 match('Ratatattat', 'at', 4) == true
 match('oooo', 'ooo', 2) == false
 ```
+
+## Special Rules
+
+1. No regex. No match, split, contains, etc. that use regex. You may
+   use a native function that performs an exact prefix search.
