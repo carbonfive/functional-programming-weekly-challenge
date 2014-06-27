@@ -14,19 +14,23 @@
   % git clone git@github.com:username/functional-programming-weekly-challenge.git
   % cd functional-programming-weekly-challenge
   ```
+
 1. Set this repo as the upstream:
   ```sh
   % git remote add upstream git@github.com:carbonfive/functional-programming-weekly-challenge.git
   ```
+
 1. Under the folder for a given week, create a folder for your solution files. Name it after your Github username.
 1. Commit and push the changes to your fork.
 1. [Create a pull request][pr] back to this repo to show off your
    answers!
 1. Pull in future challenges:
+
   ```sh
   % git fetch upstream
   % git merge upstream/master
   ```
+
 
 Each week we will add a new folder containing a README.md presenting a challenge. For example, [here][week-001] is the first week's challenge!
 
