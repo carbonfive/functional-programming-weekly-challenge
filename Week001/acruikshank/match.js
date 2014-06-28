@@ -8,7 +8,6 @@ function match(string, pattern, count) {
 
 function test(value) { console.log( value ? "PASS" : "FAIL" ); }
 
-
 test( ! match('abcabc', 'abc', 1) );
 test( match('abcabc', 'abc', 2) );
 test( match('Hello Jello', 'ello', 2) );
