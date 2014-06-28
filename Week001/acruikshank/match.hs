@@ -1,9 +1,7 @@
 match :: String -> String -> Int -> Bool
 match s pattern n = match' s pattern n where
-  match' _ [] 0 = False
   match' s [] n = match' s pattern (n-1)
-  match' [] _ 0 = True
-  match' [] _ _ = False
+  match' [] _ n = n == 0
   match' (s:ss) (p:ps) n
     | s == p = match' ss ps n
     | otherwise = match' ss (p:ps) n
