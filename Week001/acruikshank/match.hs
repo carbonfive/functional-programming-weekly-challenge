@@ -4,7 +4,7 @@ match s pattern n = match' s pattern n where
   match' [] _ n = n == 0
   match' (s:ss) (p:ps) n
     | s == p = match' ss ps n
-    | otherwise = match' ss (p:ps) n
+    | otherwise = match' ss pattern n
 
 main = do
   if not (match "abcabc" "abc" 1)       then putStrLn "PASS" else putStrLn "FAIL"
@@ -14,3 +14,5 @@ main = do
   if not (match "Ratatattat" "at" 3)    then putStrLn "PASS" else putStrLn "FAIL"
   if match "Ratatattat" "at" 4          then putStrLn "PASS" else putStrLn "FAIL"
   if not (match "oooo" "ooo" 2)         then putStrLn "PASS" else putStrLn "FAIL"
+  if not (match "faaaaat" "fat" 1)      then putStrLn "PASS" else putStrLn "FAIL"
+
