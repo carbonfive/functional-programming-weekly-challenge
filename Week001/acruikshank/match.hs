@@ -1,10 +1,15 @@
+prefix :: String -> String -> Maybe String
+prefix s [] = Just s
+prefix [] p = Nothing
+prefix (s:ss) (p:ps)
+  | s == p = prefix ss ps
+  | otherwise = Nothing
+
 match :: String -> String -> Int -> Bool
-match s pattern n = match' s pattern n where
-  match' s [] n = match' s pattern (n-1)
-  match' [] _ n = n == 0
-  match' (s:ss) (p:ps) n
-    | s == p = match' ss ps n
-    | otherwise = match' ss pattern n
+match [] pattern n = n == 0
+match (s:ss) pattern n = case (prefix (s:ss) pattern) of
+  Nothing -> match ss pattern n
+  Just rest -> match rest pattern (n-1)
 
 main = do
   if not (match "abcabc" "abc" 1)       then putStrLn "PASS" else putStrLn "FAIL"
@@ -15,4 +20,4 @@ main = do
   if match "Ratatattat" "at" 4          then putStrLn "PASS" else putStrLn "FAIL"
   if not (match "oooo" "ooo" 2)         then putStrLn "PASS" else putStrLn "FAIL"
   if not (match "faaaaat" "fat" 1)      then putStrLn "PASS" else putStrLn "FAIL"
-
+  if (match "eeep" "eep" 1)             then putStrLn "PASS" else putStrLn "FAIL"
