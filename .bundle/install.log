@@ -1,0 +1,25 @@
+# Logfile created on 2014-07-22 14:07:11 -0700 by logger.rb/41954
+I, [2014-07-22T14:07:11.091699 #75928]  INFO -- : 2:  phantomjs (1.9.7.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/phantomjs-1.9.7.1.gemspec
+I, [2014-07-22T14:07:11.092364 #75928]  INFO -- : 2:  bundler (1.5.1) from /Users/seandurham/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/bundler-1.5.1/lib/bundler/source
+I, [2014-07-22T14:07:11.248520 #75927]  INFO -- : 1:  jasmine-core (2.0.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-core-2.0.1.gemspec
+I, [2014-07-22T14:07:11.338226 #75926]  INFO -- : 0:  rake (10.3.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rake-10.3.2.gemspec
+I, [2014-07-22T14:07:11.491623 #75929]  INFO -- : 3:  rack (1.5.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rack-1.5.2.gemspec
+I, [2014-07-22T14:07:12.349805 #75928]  INFO -- : 2:  jasmine (2.0.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-2.0.2.gemspec
+I, [2014-07-22T14:07:55.557926 #76490]  INFO -- : 0:  rack (1.5.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rack-1.5.2.gemspec
+I, [2014-07-22T14:07:55.557926 #76492]  INFO -- : 2:  rake (10.3.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rake-10.3.2.gemspec
+I, [2014-07-22T14:07:55.558732 #76490]  INFO -- : 0:  bundler (1.5.1) from /Users/seandurham/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/bundler-1.5.1/lib/bundler/source
+I, [2014-07-22T14:07:55.559601 #76493]  INFO -- : 3:  phantomjs (1.9.7.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/phantomjs-1.9.7.1.gemspec
+I, [2014-07-22T14:07:55.560594 #76491]  INFO -- : 1:  jasmine-core (2.0.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-core-2.0.1.gemspec
+I, [2014-07-22T14:07:55.561392 #76492]  INFO -- : 2:  jasmine (2.0.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-2.0.2.gemspec
+I, [2014-07-22T14:08:12.373138 #76638]  INFO -- : 3:  rake (10.3.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rake-10.3.2.gemspec
+I, [2014-07-22T14:08:12.373138 #76636]  INFO -- : 1:  jasmine-core (2.0.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-core-2.0.1.gemspec
+I, [2014-07-22T14:08:12.373466 #76635]  INFO -- : 0:  phantomjs (1.9.7.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/phantomjs-1.9.7.1.gemspec
+I, [2014-07-22T14:08:12.373610 #76637]  INFO -- : 2:  rack (1.5.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rack-1.5.2.gemspec
+I, [2014-07-22T14:08:12.373880 #76636]  INFO -- : 1:  bundler (1.5.1) from /Users/seandurham/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/bundler-1.5.1/lib/bundler/source
+I, [2014-07-22T14:08:12.374632 #76638]  INFO -- : 3:  jasmine (2.0.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-2.0.2.gemspec
+I, [2014-07-22T14:08:37.742441 #77081]  INFO -- : 1:  jasmine-core (2.0.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-core-2.0.1.gemspec
+I, [2014-07-22T14:08:37.742441 #77082]  INFO -- : 2:  rake (10.3.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rake-10.3.2.gemspec
+I, [2014-07-22T14:08:37.742447 #77080]  INFO -- : 0:  phantomjs (1.9.7.1) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/phantomjs-1.9.7.1.gemspec
+I, [2014-07-22T14:08:37.742703 #77083]  INFO -- : 3:  rack (1.5.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/rack-1.5.2.gemspec
+I, [2014-07-22T14:08:37.743184 #77081]  INFO -- : 1:  bundler (1.5.1) from /Users/seandurham/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/bundler-1.5.1/lib/bundler/source
+I, [2014-07-22T14:08:37.743969 #77082]  INFO -- : 2:  jasmine (2.0.2) from /Users/seandurham/Projects/carbonfive/functional-programming-weekly-challenge/vendor/bundle/specifications/jasmine-2.0.2.gemspec
