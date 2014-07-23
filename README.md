@@ -24,7 +24,7 @@ Now that you have some vague idea as to what functional programming is - you wan
 1. Use whatever language you like
 2. Once you've set the value of a variable, don't change it (even if your language allows you to)
 
-### Tip: Avoid The Noid (and State-Mutation)
+In case #2 is a bit murky, check out these examples of legal / illegal codez:
 
 ```ruby
 
@@ -56,9 +56,11 @@ add_one = lambda { |n| n + 1 } # a 'pure' function; accepts a value, returns a v
 y = x.map(&add_one)
 ```
 
-## Topics You Might Care About
+Functions that operate on array-like structures that return new arrays are fair-game (map, reduce). Destructive methods (Ruby's concat and map!) should be avoided at all costs!
 
-### First-class Functions
+## Some Tips:
+
+### Leverage First-class Functions
 
 Functions as values that can be passed around like integers / strings / whatever:
 
@@ -69,7 +71,7 @@ add_one = lambda { |n| n + 1 }
 
 ```
 
-### Higher-order Functions
+### Use Higher-order Functions
 
 Functions that do one or more of the following:
 
