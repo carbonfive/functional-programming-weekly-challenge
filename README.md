@@ -3,7 +3,7 @@
 ## General Rules
 
 1. You may use any language you like (you are encouraged to use an out of the way language).
-1. No State. No variables, no string mutations, and no iterators. You may use function calls,
+1. No state mutation. No variables, no string mutations, and no iterators. You may use function calls,
     function parameters, conditionals, string and logical operators.
 
 ## How to Join the Fun
