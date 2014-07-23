@@ -1,22 +1,25 @@
 window.g = function(sentinel) {
-  value = 'g';
-
-  function evaluate(sentinel) {
-    if (sentinel) {
-      return finish(sentinel);
-    } else {
-      return keepOing();
-    }
+  function evaluate(accumulator) {
+    return function(sentinel){
+      if (sentinel) {
+        return finish(accumulator, sentinel);
+      } else {
+        return keepOing(accumulator);
+      }
+    };
   }
 
-  function keepOing(){
-    value += 'o';
-    return evaluate;
+  function keepOing(accumulator){
+    return evaluate(accumulator + 'o');
   }
 
-  function finish(suffix){
-    return value + suffix;
+  function finish(accumulator, suffix){
+    return 'g' + accumulator + suffix;
   }
 
-  return evaluate(sentinel);
+  if(sentinel){
+    return finish('', sentinel);
+  } else {
+    return evaluate('o');
+  }
 };
