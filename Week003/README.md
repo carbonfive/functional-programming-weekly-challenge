@@ -37,7 +37,7 @@
   }, [1, 2, 3, 2]); // [2, 2]
   ```
 
-5.  Implement a function "findInList" that, given a list and a (unary function) predicate returns the first item in the list that satisfies the predicate. The function should return your language's null type if no item in the list satisfies the predicate.
+5.  Implement a function "findInList" that, given a list and a (unary function) predicate returns the first item in the list that satisfies the predicate. The function should return your language's void value (e.g. undefined, nil, Nothing) if no item in the list satisfies the predicate.
 
   ```javascript
   findInList(function(item) {
