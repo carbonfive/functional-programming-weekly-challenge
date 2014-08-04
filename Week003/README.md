@@ -1,24 +1,24 @@
 # CHALLENGE #3: HIGHER-ORDER FUNCTIONS
 
-1. Implement a function "foldFromRight" which takes:
+1. Implement a function "foldFromLeft" which takes:
   - a function with two parameters (a "binary function")
   - a starting value (the accumulator)
   - a list of values to reduce into a single value
 
-  The behavior of your foldFromRight function will be similar to "reduce" in JavaScript and Ruby - except for the fact that it will move from the end of the list to the beginning (instead of from the beginning to the end).
-
-  ```javascript
-  foldFromRight(function(item, memo) {
-    return memo.concat([item]);
-  }, [], [5, 4, 25]); // [25, 4, 5]
-  ```
-
-2.  Can you implement a function "foldFromLeft" using your "foldFromRight" function? If you can't, that's fine - implement it from scratch.
+  The behavior of your foldFromLeft function will be identical to "reduce" in JavaScript and Ruby.
 
   ```javascript
   foldFromLeft(function(memo, item) {
     return memo.concat([item]);
   }, [], [5, 4, 25]); // [5, 4, 25]
+  ```
+  
+2.  Implement a function "foldFromRight" It should behave like foldFromLeft - except it will start at the end of the list and move towards the beginning (instead of from the beginning to the end). Can you implement it using foldFromLeft? If not, that's fine - implement it from scratch.
+
+  ```javascript
+  foldFromRight(function(item, memo) {
+    return memo.concat([item]);
+  }, [], [5, 4, 25]); // [25, 4, 5]
   ```
 
 3.  Implement a function "mapListFromLeft" using your "foldFromLeft" function.
