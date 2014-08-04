@@ -28,7 +28,7 @@
 
 ## BONUS: MAP OVER BINARY TREES
 
-1.  Can you implement a function "mapBBST" that, given a unary function and a balanced binary search tree produces a new balanced binary search tree from applying your unary function to each node in the original tree?
+1.  Can you implement a function "mapBBST" that, given a unary function and a binary search tree produces a new binary search tree from applying your unary function to each node in the original tree?
 2.  Modify your `makeBBST` to ensure that the tree you build is balanced.
 
 
