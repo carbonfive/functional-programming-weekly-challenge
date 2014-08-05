@@ -26,6 +26,16 @@ function curry(fx) {
   };
 }
 
+function arginator(offset) {
+  return function() {
+    return λ.id.apply(null, Array.prototype.slice.call(arguments, offset, offset+1));
+  }
+}
+
+λ.arg0 = arginator(0);
+λ.arg1 = arginator(1);
+λ.arg2 = arginator(2);
+
 λ.gt = curry(function(x, y) {
   return x > y;
 });
@@ -67,14 +77,6 @@ function curry(fx) {
     return f.call(null, g.apply(null, Array.prototype.slice.call(arguments, 0)));
   };
 });
-
-λ.arg0 = function() {
-  return λ.id.apply(null, Array.prototype.slice.call(arguments, 0, 1));
-};
-
-λ.arg1 = function() {
-  return λ.id.apply(null, Array.prototype.slice.call(arguments, 1, 2));
-};
 
 λ.flip = function(f) {
   return curry(function(x, y) {
