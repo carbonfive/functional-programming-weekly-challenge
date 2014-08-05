@@ -97,7 +97,8 @@ function arginator(offset) {
   };
 });
 
-// TODO: fix O(n^2)
+// TODO: how expensive is arr.length?
+//
 λ.foldFromRight = curry(function(f, acc, arr) {
   var lastIdx = arr.length - 1;
 
