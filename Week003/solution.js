@@ -16,7 +16,7 @@ function curry(fx) {
           return fx.apply(null, λ.concat(args1, args2));
         }
         else {
-          return accumulator.apply(null, λ.concat(λ.concat(λ.concat([], fx), args1), args2))
+          return accumulator.apply(null, [fx].concat(args1).concat(args2));
         }
       }
     }
@@ -68,6 +68,7 @@ function arginator(offset) {
   return x === y;
 });
 
+// TODO: make this function variadic
 λ.concat = curry(function(arr, value) {
   return arr.concat(value);
 });
@@ -97,8 +98,8 @@ function arginator(offset) {
   };
 });
 
-// TODO: how expensive is arr.length?
-//
+// TODO: can we do this w/out indexing into the last item in the array?
+// TODO: can we use iif for this?
 λ.foldFromRight = curry(function(f, acc, arr) {
   var lastIdx = arr.length - 1;
 
@@ -110,6 +111,7 @@ function arginator(offset) {
   }
 });
 
+// TODO: can we use iif for this?
 λ.foldFromLeft = curry(function(f, acc, arr) {
   if (arr[0] == undefined) {
     return acc;
@@ -119,9 +121,10 @@ function arginator(offset) {
   }
 });
 
+// TODO: can we eliminate the inner return?
 λ.mapFromLeft = curry(function(f, arr) {
   return λ.foldFromLeft(function(acc, item) {
-    return λ.concat(acc, f(item));
+    return λ.comp(λ.concat(acc), f)(item);
   }, [], arr);
 });
 
@@ -142,3 +145,39 @@ function arginator(offset) {
     return λ.findFromLeft(p, arr.slice(1, len));
   }
 });
+
+λ.uniq = function(arr) {
+  return λ.foldFromLeft(λ.iif(λ.comp(λ.eq(-1), λ.idx), λ.concat, λ.id), [], arr);
+};
+
+λ.idx = curry(function(arr, val) {
+  return arr.indexOf(val);
+});
+
+// TODO: can we use iif for this?
+λ.partition = curry(function(p, arr) {
+  return λ.foldFromLeft(function(acc, item) {
+    if (p(item)) {
+      return [λ.concat(acc[0], item), acc[1]]
+    }
+    else {
+      return [acc[0], λ.concat(acc[1], item)]
+    }
+  }, [[], []], arr);
+});
+
+λ.sort = function(arr) {
+  if (arr.length < 2) {
+    return arr;
+  }
+  else {
+    var head  = arr[0],
+        parts = λ.partition(λ.flip(λ.lt)(head), Array.prototype.slice.call(arr, 1)),
+        left  = parts[0],
+        right = parts[1];
+
+    return λ.sort(left).concat(head).concat(λ.sort(right));
+  }
+};
+
+module.exports = λ

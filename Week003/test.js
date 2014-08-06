@@ -1,6 +1,9 @@
-function assertEq(expr1, expr2, msg) {
-  if (JSON.stringify(expr1) !== JSON.stringify(expr2)) {
-    throw new Error("*** was not equal: " + msg + "\n" + "expr1: " + expr1 + " and expr2: " + expr2 + "\n\n");
+λ = require('./solution.js');
+b = require('./bonus.js');
+
+function assertEq(provided, expr2, msg) {
+  if (JSON.stringify(provided) !== JSON.stringify(expr2)) {
+    throw new Error("*** was not equal: " + msg + "\n" + "provided: " + JSON.stringify(provided) + " and expr2: " + JSON.stringify(expr2) + "\n\n");
   }
   else {
     console.log(">>> pass! " + msg + "\n\n");
@@ -31,3 +34,11 @@ assertEq(fiveA, 2, "match w/find");
 
 var fiveB = λ.findFromLeft(λ.eq(10), [1, 2, 3, 4]);
 assertEq(fiveB, undefined, "no match w/find");
+
+// BONUS STUFF
+//
+assertEq(b.pairs([]), [], "empty list to pairs returns empty list");
+assertEq(b.pairs(["hello"]), [], "need at least two things to form a pair");
+assertEq(b.pairs(["friends", "hello"]), ["friends+hello"], "two items form a pair");
+assertEq(b.pairs(["hello", "friends"]), ["friends+hello"], "two items form a pair - always alphabetized");
+assertEq(b.pairs(["friends", "friends", "hello", "friends"]), ["friends+friends", "friends+hello"], "only counting unique pairs");
