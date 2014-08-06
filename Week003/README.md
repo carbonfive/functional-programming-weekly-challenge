@@ -49,7 +49,10 @@
 Given the attached file (some huge text file, say, [the text from Moby Dick](http://www.gutenberg.org/files/2701/old/moby10b.txt), write a program that returns the top three pairings (in terms of frequency) of words that appear in a sentence together. In the event that pairs are tied in their rank, pick a tiebreaker of your choosing and explain its implementation. Ignore capitalization. A function that returns the "pairs" of words in a sentence might behave like this:
 
 ```javascript
-pairs("Hello, my friends!"); // hello+my hello+friends my+friends
+var p1 = pairs("Hello, my friends!");       // hello+my fiends+hello, friends+my
+var p2 = pairs("My, my my my, friends..."); // my+my, friends+my
+
+freq([p1, p2]) // hello+my:1, friends+hello:1, friends+my:2, my+my:1
 ```
 
 ## TERMS
