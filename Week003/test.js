@@ -17,7 +17,7 @@ function isUpperCase(s) {
 var one = λ.foldFromRight(λ.flip(λ.concat), [], [1, 2, 3, 4, 5])
 assertEq(one, [5, 4, 3, 2, 1], "foldr concat");
 
-var two = λ.foldFromLeft(λ.iif(λ.comp(isUpperCase, λ.arg1), λ.id, λ.concat), [], "Hello, Moto".split(""));
+var two = λ.foldFromLeft(λ.iif(λ.comp(isUpperCase, λ.arg(1)), λ.id, λ.concat), [], "Hello, Moto".split(""));
 assertEq(two, "ellooto".split(""), "foldl only lowercase alpha chars");
 
 var three = λ.mapFromLeft(λ.mul(10), [1, 2, 3, 4])

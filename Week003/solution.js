@@ -27,9 +27,7 @@ function curry(fx) {
 }
 
 function arginator(offset) {
-  return function() {
-    return λ.id.apply(null, Array.prototype.slice.call(arguments, offset, offset+1));
-  }
+
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -88,9 +86,11 @@ function arginator(offset) {
   });
 };
 
-λ.arg0 = arginator(0);
-λ.arg1 = arginator(1);
-λ.arg2 = arginator(2);
+λ.arg = function(offset) {
+  return function() {
+    return λ.id.apply(null, Array.prototype.slice.call(arguments, offset, offset+1));
+  }
+}
 
 λ.iif = curry(function(expr, f1, f2) {
   return function() {
@@ -192,7 +192,7 @@ function arginator(offset) {
 });
 
 λ.filterFromLeft = curry(function(p, arr) {
-  return λ.foldFromLeft(λ.iif(λ.comp(p, λ.arg1), λ.concat, λ.id), [], arr);
+  return λ.foldFromLeft(λ.iif(λ.comp(p, λ.arg(1)), λ.concat, λ.id), [], arr);
 });
 
 λ.findFromLeft = curry(function(p, arr) {
