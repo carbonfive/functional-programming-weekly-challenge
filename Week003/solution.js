@@ -177,7 +177,7 @@ function arginator(offset) {
 });
 
 λ.foldFromLeft = curry(function(f, acc, arr) {
-  if (arr[0] == undefined) {
+  if (arr.length === 0) {
     return acc;
   }
   else {
