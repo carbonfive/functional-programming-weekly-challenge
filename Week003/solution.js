@@ -32,17 +32,9 @@ function arginator(offset) {
   }
 }
 
-λ.arg0 = arginator(0);
-λ.arg1 = arginator(1);
-λ.arg2 = arginator(2);
-
-λ.gt = curry(function(x, y) {
-  return x > y;
-});
-
-λ.lt = curry(function(x, y) {
-  return x < y;
-});
+///////////////////////////////////////////////////////////////////////////////
+// MATH UTILS
+/////////////
 
 λ.div = curry(function(n, d) {
   return (n / d);
@@ -60,18 +52,29 @@ function arginator(offset) {
   return x % y;
 });
 
-λ.id = function(x) {
-  return x;
-};
+///////////////////////////////////////////////////////////////////////////////
+// COMPARISONS
+//////////////
 
 λ.eq = curry(function(x, y) {
   return x === y;
 });
 
-// TODO: make this function variadic
-λ.concat = curry(function(arr, value) {
-  return arr.concat(value);
+λ.gt = curry(function(x, y) {
+  return x > y;
 });
+
+λ.lt = curry(function(x, y) {
+  return x < y;
+});
+
+///////////////////////////////////////////////////////////////////////////////
+// FUNCTIONAL BUILDING BLOCK-TYPE STUFF
+///////////////////////////////////////
+
+λ.id = function(x) {
+  return x;
+};
 
 λ.comp = curry(function(f, g) {
   return function() {
@@ -84,6 +87,10 @@ function arginator(offset) {
     return f.apply(null, [y, x]);
   });
 };
+
+λ.arg0 = arginator(0);
+λ.arg1 = arginator(1);
+λ.arg2 = arginator(2);
 
 λ.iif = curry(function(expr, f1, f2) {
   return function() {
@@ -98,52 +105,13 @@ function arginator(offset) {
   };
 });
 
-// TODO: can we do this w/out indexing into the last item in the array?
-// TODO: can we use iif for this?
-λ.foldFromRight = curry(function(f, acc, arr) {
-  var lastIdx = arr.length - 1;
+///////////////////////////////////////////////////////////////////////////////
+// WORKING WITH ARRAYS
+//////////////////////
 
-  if (lastIdx === -1) {
-    return acc;
-  }
-  else {
-    return λ.foldFromRight(f, f(arr[lastIdx], acc), arr.slice(0, lastIdx));
-  }
-});
-
-// TODO: can we use iif for this?
-λ.foldFromLeft = curry(function(f, acc, arr) {
-  if (arr[0] == undefined) {
-    return acc;
-  }
-  else {
-    return λ.foldFromLeft(f, f(acc, arr[0]), arr.slice(1, arr.length));
-  }
-});
-
-// TODO: can we eliminate the inner return?
-λ.mapFromLeft = curry(function(f, arr) {
-  return λ.foldFromLeft(function(acc, item) {
-    return λ.comp(λ.concat(acc), f)(item);
-  }, [], arr);
-});
-
-λ.filterFromLeft = curry(function(p, arr) {
-  return λ.foldFromLeft(λ.iif(λ.comp(p, λ.arg1), λ.concat, λ.id), [], arr);
-});
-
-λ.findFromLeft = curry(function(p, arr) {
-  var len = arr.length;
-
-  if (len == 0) {
-    return undefined;
-  }
-  else if (p(arr[0])) {
-    return arr[0];
-  }
-  else {
-    return λ.findFromLeft(p, arr.slice(1, len));
-  }
+// TODO: make this function variadic
+λ.concat = curry(function(arr, value) {
+  return arr.concat(value);
 });
 
 λ.uniq = function(arr) {
@@ -172,12 +140,73 @@ function arginator(offset) {
   }
   else {
     var head  = arr[0],
-        parts = λ.partition(λ.flip(λ.lt)(head), Array.prototype.slice.call(arr, 1)),
-        left  = parts[0],
-        right = parts[1];
+      parts = λ.partition(λ.flip(λ.lt)(head), Array.prototype.slice.call(arr, 1)),
+      left  = parts[0],
+      right = parts[1];
 
     return λ.sort(left).concat(head).concat(λ.sort(right));
   }
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// SOLUTIONS TO HOMEWORK PROBLEM
+////////////////////////////////
+
+// OPEN QUESTIONS:
+//
+// λ.foldFromRight
+// * can we do this w/out indexing into the last item in the array?
+// * can we use iif for this?
+//
+// λ.foldFromLeft
+// * can we use iif for this?
+//
+// λ.mapFromLeft
+// * can we eliminate the inner return?
+//
+
+λ.foldFromRight = curry(function(f, acc, arr) {
+  var lastIdx = arr.length - 1;
+
+  if (lastIdx === -1) {
+    return acc;
+  }
+  else {
+    return λ.foldFromRight(f, f(arr[lastIdx], acc), arr.slice(0, lastIdx));
+  }
+});
+
+λ.foldFromLeft = curry(function(f, acc, arr) {
+  if (arr[0] == undefined) {
+    return acc;
+  }
+  else {
+    return λ.foldFromLeft(f, f(acc, arr[0]), arr.slice(1, arr.length));
+  }
+});
+
+λ.mapFromLeft = curry(function(f, arr) {
+  return λ.foldFromLeft(function(acc, item) {
+    return λ.comp(λ.concat(acc), f)(item);
+  }, [], arr);
+});
+
+λ.filterFromLeft = curry(function(p, arr) {
+  return λ.foldFromLeft(λ.iif(λ.comp(p, λ.arg1), λ.concat, λ.id), [], arr);
+});
+
+λ.findFromLeft = curry(function(p, arr) {
+  var len = arr.length;
+
+  if (len == 0) {
+    return undefined;
+  }
+  else if (p(arr[0])) {
+    return arr[0];
+  }
+  else {
+    return λ.findFromLeft(p, arr.slice(1, len));
+  }
+});
 
 module.exports = λ
