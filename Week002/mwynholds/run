@@ -1,0 +1,7 @@
+#!/bin/sh
+
+java="/usr/libexec/java_home -v 1.8.0 --exec java"
+javac="/usr/libexec/java_home -v 1.8.0 --exec javac"
+
+$javac carbonfive/*.java
+$java carbonfive.Goooal
